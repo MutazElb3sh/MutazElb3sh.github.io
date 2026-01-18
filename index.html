@@ -1,586 +1,210 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-CA">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>GrowBusy — AI Receptionist & Automation</title>
-  <meta name="description" content="GrowBusy: AI receptionist, AI automation, email responder, and text message responder so you never miss a lead." />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>GrowBusy | Marketing + AI Receptionist + Customer Journey</title>
+  <meta name="description" content="GrowBusy helps appointment-based businesses get more booked customers using social media marketing, AI receptionists, and automated follow-ups.">
+  <meta name="robots" content="index, follow">
+
+  <!-- 🔴 REPLACE YOUR-USERNAME -->
+  <link rel="canonical" href="https://YOUR-USERNAME.github.io/growbusy/">
+
+  <!-- Social Preview -->
+  <meta property="og:title" content="GrowBusy | More Booked Appointments">
+  <meta property="og:description" content="Marketing → AI → Customer Journey. We turn leads into booked customers.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://YOUR-USERNAME.github.io/growbusy/">
 
   <style>
-    :root{
-      --bg:#070a12;
-      --panel: rgba(255,255,255,.06);
-      --panel2: rgba(255,255,255,.08);
-      --border: rgba(255,255,255,.14);
-      --text:#eaf0ff;
-      --muted: rgba(234,240,255,.75);
-      --muted2: rgba(234,240,255,.55);
-      --brand:#38bdf8;
-      --brand2:#a78bfa;
-      --ok:#34d399;
-      --shadow: 0 12px 40px rgba(0,0,0,.35);
-      --radius: 18px;
-      --max: 1100px;
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial;
+      background: #0b1220;
+      color: #ffffff;
+      line-height: 1.6;
     }
-
-    *{ box-sizing: border-box; }
-    html, body{ height: 100%; }
-    body{
-      margin:0;
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial;
-      background:
-        radial-gradient(1200px 600px at 10% 10%, rgba(56,189,248,.18), transparent 60%),
-        radial-gradient(1200px 600px at 90% 20%, rgba(167,139,250,.16), transparent 60%),
-        radial-gradient(900px 500px at 50% 90%, rgba(52,211,153,.10), transparent 60%),
-        var(--bg);
-      color: var(--text);
-      line-height: 1.5;
+    a {
+      color: inherit;
+      text-decoration: none;
     }
-
-    a{ color: inherit; text-decoration: none; }
-    .container{ width: min(var(--max), calc(100% - 40px)); margin: 0 auto; }
-
-    /* Nav */
-    .nav{
-      position: sticky; top:0; z-index: 50;
-      backdrop-filter: blur(14px);
-      background: rgba(7,10,18,.55);
-      border-bottom: 1px solid rgba(255,255,255,.08);
+    .container {
+      max-width: 1100px;
+      margin: auto;
+      padding: 0 16px;
     }
-    .nav-inner{
-      display:flex; align-items:center; justify-content: space-between;
-      padding: 14px 0;
-      gap: 12px;
+    header {
+      border-bottom: 1px solid rgba(255,255,255,0.1);
     }
-    .brand{
-      display:flex; align-items:center; gap: 10px;
-      font-weight: 900;
-      letter-spacing: .2px;
-      white-space: nowrap;
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 0;
     }
-    .logo{
-      width: 34px; height: 34px; border-radius: 10px;
-      background: linear-gradient(135deg, var(--brand), var(--brand2));
-      box-shadow: 0 10px 30px rgba(56,189,248,.18);
+    nav img {
+      height: 36px;
     }
-    .links{ display:flex; gap: 8px; flex-wrap: wrap; justify-content: flex-end; }
-    .links a{
-      font-size: 14px;
-      color: var(--muted);
-      padding: 8px 10px;
-      border-radius: 12px;
-      border: 1px solid transparent;
+    nav a {
+      margin-left: 16px;
+      font-weight: 600;
     }
-    .links a:hover{
-      color: var(--text);
-      border-color: rgba(255,255,255,.12);
-      background: rgba(255,255,255,.04);
+    .hero {
+      text-align: center;
+      padding: 80px 0;
     }
-
-    .btn{
-      display:inline-flex; align-items:center; justify-content:center;
-      padding: 10px 14px;
-      border-radius: 14px;
-      border: 1px solid rgba(255,255,255,.14);
-      background: rgba(255,255,255,.06);
-      color: var(--text);
-      font-weight: 800;
-      cursor: pointer;
-      transition: transform .12s ease, background .12s ease, border-color .12s ease;
+    .hero h1 {
+      font-size: 42px;
+      margin-bottom: 12px;
     }
-    .btn:hover{ transform: translateY(-1px); background: rgba(255,255,255,.09); border-color: rgba(255,255,255,.22); }
-    .btn.primary{
-      border: none;
-      background: linear-gradient(135deg, var(--brand), var(--brand2));
-      color: #061018;
+    .hero p {
+      opacity: 0.85;
+      max-width: 720px;
+      margin: auto;
     }
-    .btn.primary:hover{ transform: translateY(-1px) scale(1.01); }
-
-    /* Hero */
-    .hero{ padding: 56px 0 28px; }
-    .hero-grid{
-      display:grid;
-      grid-template-columns: 1.1fr .9fr;
-      gap: 22px;
-      align-items: stretch;
+    .btn {
+      display: inline-block;
+      margin-top: 24px;
+      padding: 14px 26px;
+      background: #22c55e;
+      color: #000;
+      font-weight: 700;
+      border-radius: 10px;
     }
-    .headline{
-      font-size: clamp(34px, 5vw, 56px);
-      line-height: 1.03;
-      margin: 0 0 14px;
-      letter-spacing: -0.6px;
+    section {
+      padding: 70px 0;
+      border-top: 1px solid rgba(255,255,255,0.08);
     }
-    .sub{
-      margin: 0 0 18px;
-      color: var(--muted);
-      font-size: 18px;
-      max-width: 56ch;
+    h2 {
+      text-align: center;
+      margin-bottom: 36px;
     }
-    .pill-row{ display:flex; gap: 10px; flex-wrap: wrap; margin-top: 16px; }
-    .pill{
-      display:inline-flex; align-items:center; gap: 8px;
-      padding: 8px 10px;
-      border-radius: 999px;
-      border: 1px solid rgba(255,255,255,.12);
-      background: rgba(255,255,255,.05);
-      color: var(--muted);
-      font-size: 13px;
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 24px;
     }
-    .dot{
-      width: 8px; height: 8px; border-radius: 99px;
-      background: var(--ok);
-      box-shadow: 0 0 0 4px rgba(52,211,153,.12);
+    .card {
+      background: #111827;
+      padding: 28px;
+      border-radius: 18px;
     }
-
-    .card{
-      background: linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.05));
-      border: 1px solid rgba(255,255,255,.14);
-      border-radius: var(--radius2);
-      box-shadow: var(--shadow);
-      padding: 18px;
+    footer {
+      border-top: 1px solid rgba(255,255,255,0.1);
+      padding: 32px 0;
+      margin-top: 40px;
     }
-    .card h3{ margin: 0 0 10px; }
-    .mini{
-      display:grid; gap: 10px;
-    }
-    .mini-row{
-      display:flex; gap: 10px; align-items:flex-start;
-      padding: 12px;
-      border-radius: 16px;
-      background: rgba(255,255,255,.05);
-      border: 1px solid rgba(255,255,255,.10);
-    }
-    .mini-ic{
-      width: 34px; height: 34px; border-radius: 12px;
-      background: rgba(56,189,248,.14);
-      border: 1px solid rgba(56,189,248,.25);
-      display:flex; align-items:center; justify-content:center;
-      font-weight: 900;
-      color: var(--brand);
-      flex: 0 0 auto;
-    }
-    .mini-title{ font-weight: 900; margin: 0; }
-    .mini-text{ margin: 2px 0 0; color: var(--muted2); font-size: 14px; }
-
-    /* Sections */
-    section{ padding: 34px 0; }
-    .section-title{
-      font-size: 26px;
-      margin: 0 0 8px;
-      letter-spacing: -0.3px;
-    }
-    .section-sub{
-      margin: 0 0 18px;
-      color: var(--muted);
-      max-width: 70ch;
-    }
-
-    .grid-4{
-      display:grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 14px;
-    }
-    .service{
-      background: rgba(255,255,255,.05);
-      border: 1px solid rgba(255,255,255,.12);
-      border-radius: var(--radius);
-      padding: 16px;
-      min-height: 160px;
-    }
-    .badge{
-      display:inline-flex;
-      padding: 6px 10px;
-      border-radius: 999px;
-      background: rgba(56,189,248,.12);
-      border: 1px solid rgba(56,189,248,.22);
-      color: var(--brand);
-      font-weight: 900;
-      font-size: 12px;
-      margin-bottom: 10px;
-    }
-    .service h4{ margin: 0 0 8px; font-size: 16px; }
-    .service p{ margin: 0; color: var(--muted); font-size: 14px; }
-
-    .grid-2{
-      display:grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 14px;
-    }
-    .steps .step{
-      background: rgba(255,255,255,.05);
-      border: 1px solid rgba(255,255,255,.12);
-      border-radius: var(--radius);
-      padding: 16px;
-    }
-    .step b{ color: var(--text); }
-    .step p{ margin: 8px 0 0; color: var(--muted); }
-
-    /* Pricing */
-    .pricing{
-      display:grid;
-      grid-template-columns: 1fr 1fr 1fr;
-      gap: 14px;
-    }
-    .price{
-      background: rgba(255,255,255,.05);
-      border: 1px solid rgba(255,255,255,.12);
-      border-radius: var(--radius2);
-      padding: 18px;
-    }
-    .price.pop{
-      border-color: rgba(56,189,248,.35);
-      box-shadow: 0 14px 50px rgba(56,189,248,.12);
-      background: linear-gradient(180deg, rgba(56,189,248,.10), rgba(255,255,255,.05));
-    }
-    .price .name{ font-weight: 900; }
-    .price .amount{
-      font-size: 34px;
-      font-weight: 900;
-      margin: 10px 0 4px;
-      letter-spacing: -0.6px;
-    }
-    .price .desc{ margin: 0 0 12px; color: var(--muted); }
-    ul.clean{ margin: 0; padding-left: 18px; color: var(--muted); }
-    ul.clean li{ margin: 6px 0; }
-    .price .btn{ width: 100%; margin-top: 14px; }
-
-    /* Contact */
-    .contact{
-      display:grid;
-      grid-template-columns: 1.1fr .9fr;
-      gap: 14px;
-      align-items: start;
-    }
-    .input{
-      width: 100%;
-      padding: 12px 12px;
-      border-radius: 14px;
-      border: 1px solid rgba(255,255,255,.14);
-      background: rgba(255,255,255,.06);
-      color: var(--text);
-      outline: none;
-      font-size: 15px;
-    }
-    textarea.input{ min-height: 120px; resize: vertical; }
-    .hint{ color: var(--muted2); font-size: 13px; margin-top: 8px; }
-    .footer{
-      padding: 24px 0 40px;
-      color: var(--muted2);
-      text-align:center;
-      font-size: 13px;
-    }
-
-    /* Responsive */
-    @media (max-width: 900px){
-      .hero-grid{ grid-template-columns: 1fr; }
-      .grid-4{ grid-template-columns: 1fr 1fr; }
-      .pricing{ grid-template-columns: 1fr; }
-      .contact{ grid-template-columns: 1fr; }
-      .links{ display:none; }
-    }
-    @media (max-width: 520px){
-      .grid-4{ grid-template-columns: 1fr; }
+    footer img {
+      height: 28px;
     }
   </style>
+
+  <!-- Google SEO Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "GrowBusy",
+    "url": "https://YOUR-USERNAME.github.io/growbusy/",
+    "email": "info.growbusy@gmail.com",
+    "sameAs": [
+      "https://www.instagram.com/GrowBusyltd/"
+    ],
+    "description": "GrowBusy helps appointment-based businesses grow using social media marketing, AI receptionists, and automated customer journey systems."
+  }
+  </script>
+
 </head>
 
 <body>
-  <!-- NAV -->
-  <div class="nav">
-    <div class="container">
-      <div class="nav-inner">
-        <div class="brand">
-          <div class="logo" aria-hidden="true"></div>
-          <span>GrowBusy</span>
-        </div>
 
-        <div class="links">
-          <a href="#services">Services</a>
-          <a href="#how">How it works</a>
-          <a href="#pricing">Pricing</a>
-          <a href="#contact">Contact</a>
-        </div>
+<header>
+  <div class="container">
+    <nav>
+      <div style="display:flex;align-items:center;gap:10px;">
+        <img src="logo.png" alt="GrowBusy logo">
+        <strong>GrowBusy</strong>
+      </div>
+      <div>
+        <a href="#services">Services</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </nav>
+  </div>
+</header>
 
-        <div class="cta">
-          <a class="btn" href="#pricing">See Pricing</a>
-          <a class="btn primary" href="#contact">Get Started</a>
-        </div>
+<section class="hero">
+  <div class="container">
+    <h1>More Leads. Faster Responses.<br>More Booked Appointments.</h1>
+    <p>
+      GrowBusy helps appointment-based businesses grow by combining social media marketing,
+      AI receptionists, and automated follow-ups so no lead slips through the cracks.
+    </p>
+    <a href="#contact" class="btn">Get a Free Growth Audit</a>
+  </div>
+</section>
+
+<section id="services">
+  <div class="container">
+    <h2>What We Do</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>Marketing & Lead Generation</h3>
+        <p>Social media content and paid ads that create consistent inbound demand.</p>
+      </div>
+      <div class="card">
+        <h3>AI Receptionist</h3>
+        <p>Answer missed calls, qualify leads, and book appointments automatically.</p>
+      </div>
+      <div class="card">
+        <h3>Customer Journey Systems</h3>
+        <p>Reminders, follow-ups, reviews, and reactivation to increase customer lifetime value.</p>
       </div>
     </div>
   </div>
+</section>
 
-  <!-- HERO -->
-  <header class="hero">
-    <div class="container">
-      <div class="hero-grid">
-        <div>
-          <h1 class="headline">Never miss a lead again.</h1>
-          <p class="sub">
-            GrowBusy installs AI that answers calls, replies to texts, and handles emails — so your business books more customers while you stay focused.
-          </p>
-
-          <div style="display:flex; gap:12px; flex-wrap:wrap;">
-            <a class="btn primary" href="#contact">Get a Free Setup Call</a>
-            <a class="btn" href="#services">What we automate</a>
-          </div>
-
-          <div class="pill-row">
-            <span class="pill"><span class="dot"></span> Answers 24/7</span>
-            <span class="pill">📞 AI Receptionist</span>
-            <span class="pill">💬 Text Responder</span>
-            <span class="pill">📧 Email Responder</span>
-          </div>
-        </div>
-
-        <div class="card">
-          <h3 style="margin:0 0 10px;">What GrowBusy does</h3>
-          <div class="mini">
-            <div class="mini-row">
-              <div class="mini-ic">📞</div>
-              <div>
-                <p class="mini-title">AI Receptionist</p>
-                <p class="mini-text">Answers calls, qualifies leads, and books appointments.</p>
-              </div>
-            </div>
-            <div class="mini-row">
-              <div class="mini-ic">💬</div>
-              <div>
-                <p class="mini-title">Text Message Responder</p>
-                <p class="mini-text">Instant replies, follow-ups, and reminders to reduce no-shows.</p>
-              </div>
-            </div>
-            <div class="mini-row">
-              <div class="mini-ic">📧</div>
-              <div>
-                <p class="mini-title">Email Responder</p>
-                <p class="mini-text">Replies to inquiries, sends quotes, and routes hot leads to you.</p>
-              </div>
-            </div>
-            <div class="mini-row">
-              <div class="mini-ic">⚙️</div>
-              <div>
-                <p class="mini-title">Automation</p>
-                <p class="mini-text">Connects your tools so everything runs automatically.</p>
-              </div>
-            </div>
-          </div>
-          <p style="margin:12px 0 0; color: var(--muted2); font-size: 13px;">
-            Tip: Replace the pricing numbers + contact info below with your real details.
-          </p>
-        </div>
+<section id="pricing">
+  <div class="container">
+    <h2>Pricing Models</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>Fixed Package</h3>
+        <p>Upfront setup + monthly management and optimization.</p>
+      </div>
+      <div class="card">
+        <h3>Performance-Based</h3>
+        <p>The first payment gets the system running. We earn when results come in.</p>
       </div>
     </div>
-  </header>
-
-  <!-- SERVICES -->
-  <section id="services">
-    <div class="container">
-      <h2 class="section-title">Services</h2>
-      <p class="section-sub">
-        Choose one service or bundle them together. We set it up fast, customize your scripts, and connect it to your calendar/CRM.
-      </p>
-
-      <div class="grid-4">
-        <div class="service">
-          <div class="badge">AI Receptionist</div>
-          <h4>Answer calls & book</h4>
-          <p>Greets callers, asks the right questions, and books them in seconds.</p>
-        </div>
-
-        <div class="service">
-          <div class="badge">Text Responder</div>
-          <h4>Instant SMS replies</h4>
-          <p>Auto-reply to new leads, send follow-ups, reminders, and reactivation texts.</p>
-        </div>
-
-        <div class="service">
-          <div class="badge">Email Responder</div>
-          <h4>Smart email handling</h4>
-          <p>Responds to inquiries, sends info/quotes, and tags urgent leads for you.</p>
-        </div>
-
-        <div class="service">
-          <div class="badge">Automation</div>
-          <h4>Connect everything</h4>
-          <p>Links your forms, calendar, CRM, and inbox so leads never slip through.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- HOW IT WORKS -->
-  <section id="how" class="steps">
-    <div class="container">
-      <h2 class="section-title">How it works</h2>
-      <p class="section-sub">3 steps. Setup is simple. You approve everything before it goes live.</p>
-
-      <div class="grid-2">
-        <div class="step">
-          <b>1) Quick discovery</b>
-          <p>We learn your business, services, pricing, and how you want calls/texts handled.</p>
-        </div>
-        <div class="step">
-          <b>2) Build your AI scripts</b>
-          <p>We write your call + SMS + email flows (FAQ, booking, quotes, follow-up).</p>
-        </div>
-        <div class="step">
-          <b>3) Connect & launch</b>
-          <p>We connect to your calendar/CRM and test everything before going live.</p>
-        </div>
-        <div class="step">
-          <b>Optional: Lead capture</b>
-          <p>We can add forms, landing pages, and lead routing so it’s fully automated.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- PRICING -->
-  <section id="pricing">
-    <div class="container">
-      <h2 class="section-title">Simple pricing</h2>
-      <p class="section-sub">
-        Replace these with your real prices. (These are placeholders so the site looks complete.)
-      </p>
-
-      <div class="pricing">
-        <div class="price">
-          <div class="name">Starter</div>
-          <div class="amount">$199<span style="font-size:14px; color:var(--muted);">/mo</span></div>
-          <p class="desc">Best for one channel (texts OR emails).</p>
-          <ul class="clean">
-            <li>1 responder (SMS or Email)</li>
-            <li>Basic FAQ + routing</li>
-            <li>Monthly optimization</li>
-          </ul>
-          <a class="btn" href="#contact">Choose Starter</a>
-        </div>
-
-        <div class="price pop">
-          <div class="name">Growth (Most Popular)</div>
-          <div class="amount">$399<span style="font-size:14px; color:var(--muted);">/mo</span></div>
-          <p class="desc">Texts + emails + automations.</p>
-          <ul class="clean">
-            <li>SMS + Email responder</li>
-            <li>Follow-up sequences</li>
-            <li>Calendar/CRM integration</li>
-            <li>Priority support</li>
-          </ul>
-          <a class="btn primary" href="#contact">Choose Growth</a>
-        </div>
-
-        <div class="price">
-          <div class="name">Pro</div>
-          <div class="amount">$699<span style="font-size:14px; color:var(--muted);">/mo</span></div>
-          <p class="desc">AI receptionist + full setup.</p>
-          <ul class="clean">
-            <li>AI receptionist (calls)</li>
-            <li>SMS + Email responder</li>
-            <li>Lead qualification + booking</li>
-            <li>Custom workflows</li>
-          </ul>
-          <a class="btn" href="#contact">Choose Pro</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CONTACT -->
-  <section id="contact">
-    <div class="container">
-      <h2 class="section-title">Contact GrowBusy</h2>
-      <p class="section-sub">Fill this out and we’ll get back to you. (This form opens your email app.)</p>
-
-      <div class="contact">
-        <div class="card">
-          <h3 style="margin:0 0 10px;">Send a message</h3>
-
-          <label>
-            <div style="margin:10px 0 6px; color:var(--muted); font-size:14px;">Your name</div>
-            <input class="input" id="name" placeholder="e.g., Alex" />
-          </label>
-
-          <label>
-            <div style="margin:10px 0 6px; color:var(--muted); font-size:14px;">Your business</div>
-            <input class="input" id="biz" placeholder="e.g., Alex Plumbing" />
-          </label>
-
-          <label>
-            <div style="margin:10px 0 6px; color:var(--muted); font-size:14px;">Phone or email</div>
-            <input class="input" id="contactInfo" placeholder="e.g., (647) 555-0123 or alex@email.com" />
-          </label>
-
-          <label>
-            <div style="margin:10px 0 6px; color:var(--muted); font-size:14px;">What do you want to automate?</div>
-            <textarea class="input" id="msg" placeholder="Tell us what you need: calls, texts, emails, booking, follow-ups, etc."></textarea>
-          </label>
-
-          <button class="btn primary" style="margin-top:12px; width:100%;" onclick="sendEmail()">
-            Send Message
-          </button>
-          <div class="hint">This uses your email app. If you want a real form that collects leads automatically, tell me and I’ll set it up with a free solution.</div>
-        </div>
-
-        <div class="card">
-          <h3 style="margin:0 0 10px;">Quick contact</h3>
-          <p style="margin:0; color:var(--muted);">
-            Edit these to your real info:
-          </p>
-
-          <div style="margin-top:12px; display:grid; gap:10px;">
-            <div class="mini-row">
-              <div class="mini-ic">📧</div>
-              <div>
-                <p class="mini-title">Email</p>
-                <p class="mini-text"><a href="mailto:growbusy@example.com">growbusy@example.com</a></p>
-              </div>
-            </div>
-            <div class="mini-row">
-              <div class="mini-ic">📱</div>
-              <div>
-                <p class="mini-title">Phone</p>
-                <p class="mini-text"><a href="tel:+16475550123">+1 (647) 555-0123</a></p>
-              </div>
-            </div>
-            <div class="mini-row">
-              <div class="mini-ic">📍</div>
-              <div>
-                <p class="mini-title">Location</p>
-                <p class="mini-text">Ontario, Canada</p>
-              </div>
-            </div>
-          </div>
-
-          <div style="margin-top:14px; display:flex; gap:10px; flex-wrap:wrap;">
-            <a class="btn" href="#pricing">Pricing</a>
-            <a class="btn primary" href="#services">Services</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <div class="footer">
-    © <span id="year"></span> GrowBusy. All rights reserved.
   </div>
+</section>
 
-  <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
+<section id="contact">
+  <div class="container">
+    <h2>Contact GrowBusy</h2>
+    <p style="text-align:center;">
+      📧 <a href="mailto:info.growbusy@gmail.com">info.growbusy@gmail.com</a><br><br>
+      📸 <a href="https://www.instagram.com/GrowBusyltd/" target="_blank">@GrowBusyltd</a>
+    </p>
+  </div>
+</section>
 
-    function sendEmail(){
-      const name = document.getElementById("name").value.trim();
-      const biz = document.getElementById("biz").value.trim();
-      const contactInfo = document.getElementById("contactInfo").value.trim();
-      const msg = document.getElementById("msg").value.trim();
+<footer>
+  <div class="container" style="display:flex;justify-content:space-between;align-items:center;">
+    <div style="display:flex;align-items:center;gap:10px;">
+      <img src="logo.png" alt="GrowBusy logo">
+      <span>© <span id="year"></span> GrowBusy</span>
+    </div>
+    <span>Marketing → AI → Customer Journey</span>
+  </div>
+</footer>
 
-      const subject = encodeURIComponent("GrowBusy — New Inquiry");
-      const body = encodeURIComponent(
-        `Name: ${name}\nBusiness: ${biz}\nContact: ${contactInfo}\n\nMessage:\n${msg}\n`
-      );
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
 
-      // CHANGE THIS EMAIL TO YOUR REAL ONE:
-      window.location.href = `mailto:growbusy@example.com?subject=${subject}&body=${body}`;
-    }
-  </script>
 </body>
 </html>
